@@ -27,9 +27,9 @@ public class ServerManagerSystem {
 
             System.out.println("Servers are up and running");
 
-
-
-
+            mtl.openUDPListener();
+            lvl.openUDPListener();
+            ddo.openUDPListener();
 
         } catch (IOException e) {
             e.printStackTrace();

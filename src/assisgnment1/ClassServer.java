@@ -42,6 +42,63 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
         registry.bind(location.toString(), this);
     }
 
+    public void openUDPListener(){
+        DatagramSocket aSocket = null;
+        try {
+            aSocket = new DatagramSocket(this.location.getPort());
+            byte[] buffer = new byte[1000];
+            while (true){
+                DatagramPacket request = new DatagramPacket(buffer, buffer.length);
+                aSocket.receive(request);
+                if (request.getData() != null && request.getData().toString().equals("RecordCounts")){
+                    this.writeToLog("New thread starts for:" + request.getData().toString());
+                    new thread(aSocket, request, this);
+                }
+            }
+        }catch (SocketException e) {
+
+        }catch (IOException e){
+
+        }finally {
+            if (aSocket != null){
+                aSocket.close();
+            }
+        }
+    }
+
+    static class thread extends Thread{
+        DatagramSocket socket = null;
+        DatagramPacket request = null;
+        ClassServer server = null;
+
+        String recordCount;
+
+        public thread(DatagramSocket socket, DatagramPacket request, ClassServer server) {
+            this.socket = socket;
+            this.request = request;
+            this.server = server;
+
+            if (request.getData().toString().equals("RecordCounts"))
+                try {
+                    recordCount = server.getLocation().toString() + " " + server.getRecordCounts() + " ";
+                    this.start();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+        }
+
+        @Override
+        public void run() {
+            DatagramPacket reply = new DatagramPacket(recordCount.getBytes(),
+                    recordCount.getBytes().length, request.getAddress(), request.getPort());
+            try {
+                socket.send(reply);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     @Override
     public String createTRecord(String firstName, String lastName, String address,
@@ -88,15 +145,46 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
         return "Fail to create SRecord";
     }
 
-    @Override
+    @Override//dosen't finish---lose one method!!!!!
     public String getRecordCounts() throws IOException, RemoteException {
-        String message = "";
+        this.writeToLog("try to count all record at" + location.toString());
+        String output = this.location.toString() + " " + getRecordCounts() + ",";
         for (ClassServer classServer : ServerManagerSystem.serverArrayList) {
-            message = classServer.getLocation().toString() + getTotalCount() + "\n";
+            if (classServer.location != this.getLocation()){
+                output += classServer.getLocation().toString() + " "
+                        + requestRecordCounts(classServer);
+            }
         }
-        this.writeToLog("The count number in server" + message);
-        System.out.println("The count number in server" + message);
-        return message;
+        return output;
+    }
+
+    public String requestRecordCounts(ClassServer server){
+        DatagramSocket aSocket = null;
+        try {
+            aSocket = new DatagramSocket();
+            byte[] message = "RecordCounts".getBytes();
+            InetAddress aHost = InetAddress.getByName("localhost");
+            int serverPort = server.getLocation().getPort();
+            DatagramPacket request = new DatagramPacket(message,
+                    message.length, aHost, serverPort);
+            aSocket.send(request);
+            byte[] buffer = new byte[1000];
+            DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
+            aSocket.receive(reply);
+
+            String str = reply.getData().toString();
+            return str;
+
+        }catch (SocketException e){
+            System.out.println("Socket" + e.getMessage());
+        }catch (IOException e){
+            System.out.println("IO:" + e.getMessage());
+        }finally {
+            if (aSocket != null){
+                aSocket.close();
+            }
+        }
+        return null;
     }
 
     @Override
