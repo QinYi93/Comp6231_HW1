@@ -35,10 +35,10 @@ public class Record {
 
     public String getRecordId(){
         if(this instanceof StudentRecord){
-            ((StudentRecord)this).getRecordId();
+            return ((StudentRecord)this).getRecordId();
         }
         if (this instanceof TeacherRecord){
-            ((TeacherRecord)this).getRecordId();
+            return ((TeacherRecord)this).getRecordId();
         }
         return "";
     }

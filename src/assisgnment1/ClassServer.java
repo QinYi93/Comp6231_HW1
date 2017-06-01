@@ -3,6 +3,10 @@ package assisgnment1;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -10,6 +14,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * This class
@@ -96,8 +101,27 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
 
     @Override
     public String editRecord(String recordID, String fieldName, String newValue)
-            throws IOException, RemoteException {
-        return null;
+            throws IOException{
+        this.writeToLog("try to edit record for" + recordID);
+        String type = recordID.substring(0,2).toUpperCase();
+        //decides weather it is a Teacher record or Student record
+        if (type.equals("TR")){
+            String normalFieldName = fieldName.toLowerCase().trim();
+            if (normalFieldName.equals("address") || normalFieldName.equals("phone")
+                    || normalFieldName.equals("location")){
+                findRecordToEdit(recordID, fieldName, newValue, 'T');
+                return "editRocord" + recordID + "Succeddfully";
+            }
+        }
+        if (type.equals("SR")){
+            String normalFieldName = fieldName.toLowerCase().trim();
+            if (normalFieldName.equals("courseregistered") || normalFieldName.equals("status")
+                    || normalFieldName.equals("status date")){
+                findRecordToEdit(recordID, fieldName, newValue, 'S');
+                return "editRocord" + recordID + "Succeddfully";
+            }
+        }
+        return "fail to edit" + recordID;
     }
 
     public synchronized void writeToLog(String message) throws IOException{
@@ -107,6 +131,112 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
         fileWriter.close();
     }
 
+    public void findRecordToEdit(String recordId, String fieldName, String newValue, char recordType) throws IOException{
+        for (LinkedList<Record> recordLinkedList : recordData.values()) {
+            LinkedList<Record> checkRecord = recordLinkedList;
+            for (Record record : checkRecord) {
+                if(record.getRecordId().equals(recordId)){
+                    if (recordType == 'T') {
+                        switch (fieldName) {
+                            case "address":
+                                this.writeToLog("change recordID" + recordId
+                                        + "address" + ((TeacherRecord)record).getAddress() + "to" + newValue);
+                                System.out.println("change recordID" + recordId
+                                        + "address" + ((TeacherRecord)record).getAddress() + "to" + newValue);
+                                ((TeacherRecord)record).setAddress(newValue);
+                                break;
+                            case "phone":
+                                this.writeToLog("change recordID" + recordId
+                                        + "phone" + ((TeacherRecord)record).getPhone() + "to" + newValue);
+                                System.out.println("change recordID" + recordId
+                                        + "address" + ((TeacherRecord)record).getPhone() + "to" + newValue);
+                                ((TeacherRecord)record).setPhone(newValue);
+                                break;
+                            case "location":
+                                if (newValue.equals("MTL") || newValue.equals("LVL") || newValue.equals("DDO")){
+                                    this.writeToLog("change recordID" + recordId
+                                            + "location" + ((TeacherRecord)record).getLocation() + "to" + newValue);
+                                    System.out.println("change recordID" + recordId
+                                            + "location" + ((TeacherRecord)record).getLocation() + "to" + newValue);
+                                    ((TeacherRecord)record).setLocation(newValue);
+                                    for (ClassServer classServer : ServerManagerSystem.serverArrayList) {
+                                        if (classServer.getLocation().equals(PublicParameters.Location.valueOf(newValue)))
+                                            requestCreateRecord(classServer, record);
+                                    }
+                                    recordLinkedList.remove(record);
+                                }
+                                break;
+                            default:
+                                System.out.println("Invalid input!");
+                        }
+                    }
+                    if (recordType == 'S'){
+                        switch (fieldName){
+                            case "courseregistered":
+                                String message1 = "change recordID" + recordId
+                                        + "courseregistered" + ((StudentRecord)record).getCoursesRegistered()
+                                        + "to" + newValue;
+                                this.writeToLog(message1);
+                                System.out.println(message1);
+                                ((StudentRecord)record).setCoursesRegistered(PublicParameters.CoursesRegistered.valueOf(newValue));
+                                break;
+                            case "status":
+                                String message2 = "change recordID" + recordId
+                                        + "status" + ((StudentRecord)record).getStatus()
+                                        + "to" + newValue;
+                                this.writeToLog(message2);
+                                System.out.println(message2);
+                                ((StudentRecord)record).setStatus(PublicParameters.Status.valueOf(newValue));
+                                break;
+                            case "status date":
+                                String message3 = "change recordID" + recordId
+                                        + "status date" + ((StudentRecord)record).getStatusDate()
+                                        + "to" + newValue;
+                                writeToLog(message3);
+                                System.out.println(message3);
+                                ((StudentRecord)record).setStatusDate(newValue);
+                                break;
+                            default:
+                                System.out.println("Invalid input!");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * the communication between two servers in order to add or remove a record
+      */
+    public void requestCreateRecord(ClassServer server, Record record){
+        DatagramSocket aSocket = null;
+        try {
+            aSocket = new DatagramSocket();
+            byte[] message = "CreateRecord".getBytes();
+            InetAddress aHost = InetAddress.getByName("localhost");
+            int serverPort = server.getLocation().getPort();
+            DatagramPacket request = new DatagramPacket(message, message.length, aHost, serverPort);
+            aSocket.send(request);
+
+            byte[] buffer = new byte[1000];
+            DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
+            aSocket.receive(reply);
+
+            System.out.println(reply.getData().toString());
+
+        }catch (SocketException e){
+            System.out.println("Socket" + e.getMessage());
+
+        }catch (IOException e){
+            System.out.println("IO:" +e.getMessage());
+
+        }finally {
+            if (aSocket != null)
+                aSocket.close();
+        }
+
+
+    }
     public int getTotalCount(){
         return getTRCount() + getSRCount();
     }

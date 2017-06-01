@@ -1,5 +1,6 @@
 package assisgnment1;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -49,6 +50,15 @@ public class StudentRecord extends Record {
 
     public void setStatusDate(Date statusDate) {
         this.statusDate = statusDate;
+    }
+
+    public void setStatusDate (String statusDate){
+        try {
+            Date date = new SimpleDateFormat("yyyy/MM/dd").parse(statusDate);
+            this.setStatusDate(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getRecordID (){
