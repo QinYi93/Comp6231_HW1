@@ -1,8 +1,6 @@
 package assisgnment1;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -212,7 +210,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
         return "fail to edit" + recordID;
     }
 
-    public synchronized void writeToLog(String message) throws IOException{
+    public synchronized void writeToLog(String message) throws IOException {
         FileWriter fileWriter = new FileWriter(logFile, true);
         fileWriter.write(message + "\n");
         fileWriter.flush();

@@ -1,12 +1,8 @@
 package assisgnment1;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.net.MalformedURLException;
+import java.io.*;
 import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
+import java.rmi.RMISecurityManager;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,13 +24,6 @@ public class ManagerClient {
     public ManagerClient(PublicParameters.Location location) {
         managerID = location.toString() + managerBaseID;
         log = new File(managerID + ".txt");
-        if (!log.exists()){
-            try {
-                log.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
         managerBaseID++;
     }
 
@@ -42,19 +31,24 @@ public class ManagerClient {
         return managerID;
     }
 
-    public void writeToLog (String str) throws IOException{
-        FileWriter writer = new FileWriter(log , true);
-        writer.write(str + "\n");
-        writer.flush();
-        writer.close();
+    public void writeToLog(String str) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(log));
+        System.out.println(reader.readLine());
+
+//        BufferedWriter writer = new BufferedWriter(new FileWriter(log));
+//        writer.write(str + "\n");
+//        writer.flush();
+//        writer.close();
     }
 
     public static void main(String[] args) {
+        System.setSecurityManager(new RMISecurityManager());
+//        System.setProperty("java.rmi.server.hostname", "192.168.1.2");
         int userChoice = 0;
-        String userInput = "";
+        String userInput;
         Scanner scanner = new Scanner(System.in);
 
-        HashMap<String, ManagerClient> managerList = new HashMap<String, ManagerClient>();
+        HashMap<String, ManagerClient> managerList = new HashMap<>();
 
         showMenuLevel1();
 
@@ -107,7 +101,10 @@ public class ManagerClient {
                         }
                         PublicParameters.Location location = PublicParameters.Location.valueOf(managerId.substring(0, 3));
                         try {
-                            DcmsInterface server = (DcmsInterface) Naming.lookup(("rmi://localhost:"+getPort(location)));
+//                            Registry registry = LocateRegistry.getRegistry(getPort(location));
+//                            DcmsInterface server = (DcmsInterface) registry.lookup(location.toString());
+                            DcmsInterface server = (DcmsInterface) Naming.lookup(("rmi://localhost:"
+                                        +getPort(location)));
                             showMenuLeve2(scanner, server, client);
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -204,12 +201,12 @@ public class ManagerClient {
     }
 
     public static int getPort(PublicParameters.Location location){
-        if (location.equals("MTL"))
-            return 2010;
-        if (location.equals("LVL"))
-            return 2011;
-        if (location.equals("DDO"))
-            return 2012;
+        if (location == PublicParameters.Location.MTL)
+            return 7000;
+        if (location == PublicParameters.Location.LVL)
+            return 7001;
+        if (location == PublicParameters.Location.DDO)
+            return 7002;
         return -1;
     }
 }

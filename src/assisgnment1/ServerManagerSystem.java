@@ -25,13 +25,17 @@ public class ServerManagerSystem {
             serverArrayList.add(lvl);
             serverArrayList.add(ddo);
 
+            mtl.exportServer();
+            lvl.exportServer();
+            ddo.exportServer();
+
             System.out.println("Servers are up and running");
 
             mtl.openUDPListener();
             lvl.openUDPListener();
             ddo.openUDPListener();
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
