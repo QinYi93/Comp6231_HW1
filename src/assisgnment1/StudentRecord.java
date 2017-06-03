@@ -60,7 +60,7 @@ public class StudentRecord extends Record {
             e.printStackTrace();
         }
     }
-
+    @Override
     public String getRecordID (){
         return this.recordId;
     }

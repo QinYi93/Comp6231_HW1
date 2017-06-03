@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * This class
+ * This class 
  *
  * @author Yi Qin
  * @date 2017-05-28
@@ -25,17 +25,40 @@ public class ServerManagerSystem {
             serverArrayList.add(lvl);
             serverArrayList.add(ddo);
 
-            mtl.exportServer();
-            lvl.exportServer();
-            ddo.exportServer();
-
             System.out.println("Servers are up and running");
+            
+            try {
+				mtl.exportServer();
+				lvl.exportServer();
+		        ddo.exportServer();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            
+			new Thread() {
+				@Override
+				public void run() {
+				mtl.openUDPListener();
+				}
+			}.start();
+			
+			new Thread() {
+				@Override
+				public void run() {
+				lvl.openUDPListener();
+				}
+			}.start();
+			
+			new Thread() {
+				@Override
+				public void run() {
+				ddo.openUDPListener();
+				}
+			}.start();
+         
 
-            mtl.openUDPListener();
-            lvl.openUDPListener();
-            ddo.openUDPListener();
-
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

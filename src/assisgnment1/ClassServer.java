@@ -1,6 +1,8 @@
 package assisgnment1;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -36,6 +38,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
     }
 
     public void exportServer() throws Exception{
+//    		System.setProperty("java.rmi.server.hostname","192.168.1.2");
         Registry registry = LocateRegistry.createRegistry(location.getPort());
         registry.bind(location.toString(), this);
     }
@@ -48,7 +51,10 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
             while (true){
                 DatagramPacket request = new DatagramPacket(buffer, buffer.length);
                 aSocket.receive(request);
-                if (request.getData() != null && request.getData().toString().equals("RecordCounts")){
+                byte[] b = request.getData();
+                String value = new String(b).trim();
+                System.out.print(value);
+                if (value.length() > 0 && value.equals("RecordCounts")){
                     this.writeToLog("New thread starts for:" + request.getData().toString());
                     new thread(aSocket, request, this);
                 }
@@ -71,18 +77,15 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
 
         String recordCount;
 
-        public thread(DatagramSocket socket, DatagramPacket request, ClassServer server) {
+        public thread(DatagramSocket socket, DatagramPacket request, ClassServer server) throws IOException {
             this.socket = socket;
             this.request = request;
             this.server = server;
 
-            if (request.getData().toString().equals("RecordCounts"))
-                try {
-                    recordCount = server.getLocation().toString() + " " + server.getRecordCounts() + " ";
-                    this.start();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+//            if (request.getData().toString().equals("RecordCounts")) {
+				recordCount = server.getLocation().toString() + " " + server.getTotalCount() + " ";
+				this.start();
+//			}
         }
 
         @Override
@@ -107,7 +110,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
         this.writeToLog(Log1);
         System.out.println(Log1);
         char key = lastName.charAt(0);
-        if (recordData.get(key).equals(null) || !recordData.containsKey(key)){
+        if (recordData.get(key) == null || !recordData.containsKey(key)){
             recordData.put(key, new LinkedList<Record>());
         }
         if (recordData.get(key).add(TRecord)){
@@ -146,7 +149,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
     @Override//dosen't finish---lose one method!!!!!
     public String getRecordCounts() throws IOException, RemoteException {
         this.writeToLog("try to count all record at" + location.toString());
-        String output = this.location.toString() + " " + getRecordCounts() + ",";
+        String output = this.location.toString() + " " + getTotalCount() + "： ";
         for (ClassServer classServer : ServerManagerSystem.serverArrayList) {
             if (classServer.location != this.getLocation()){
                 output += classServer.getLocation().toString() + " "
@@ -169,8 +172,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
             byte[] buffer = new byte[1000];
             DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
             aSocket.receive(reply);
-
-            String str = reply.getData().toString();
+            String str = new String(reply.getData()).trim();
             return str;
 
         }catch (SocketException e){
@@ -195,7 +197,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
             String normalFieldName = fieldName.toLowerCase().trim();
             if (normalFieldName.equals("address") || normalFieldName.equals("phone")
                     || normalFieldName.equals("location")){
-                findRecordToEdit(recordID, fieldName, newValue, 'T');
+            	findRecordToEdit(recordID, fieldName, newValue, 'T');
                 return "editRocord" + recordID + "Succeddfully";
             }
         }
@@ -210,7 +212,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
         return "fail to edit" + recordID;
     }
 
-    public synchronized void writeToLog(String message) throws IOException {
+    public synchronized void writeToLog(String message) throws IOException{
         FileWriter fileWriter = new FileWriter(logFile, true);
         fileWriter.write(message + "\n");
         fileWriter.flush();

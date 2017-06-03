@@ -62,7 +62,7 @@ public class TeacherRecord extends Record {
     public void setLocation(String location){
         this.location = PublicParameters.Location.valueOf(location);
     }
-
+    @Override
     public String getRecordID (){
         return this.recordId;
     }
