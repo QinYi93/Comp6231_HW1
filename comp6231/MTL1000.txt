@@ -1,0 +1,124 @@
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Manager create new Teacher RecordYI QIN 1 1 FRENCH MTL
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Manager create new Teacher Recordyi qin 1 1 FRENCH MTL
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Manager create new Teacher Recordyi qin 1 1 FRENCH MTL
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Manager create new Teacher Recordyi qin 1 1 FRENCH MTL
+Write new Teacher Record Successfultthe key isq
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Manager create new Teacher Recordyi qin 1 1 FRENCH MTL
+Write new Teacher Record Successfultthe key isq
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+get Record counts isMTL 0,LVL [B@12e099bfDDO [B@45ff91d6
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+get Record counts isMTL 0,LVL LVL 0DDO DDO 0
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
+Manager create new Teacher Recordyi qin 1411 1111 FRENCH MTL
+Write new Teacher Record Successfultthe key isq
+get Record counts isMTL 1,LVL LVL 0DDO DDO 0
+Manager exit
+Create new manager account. 
+ Your manager id isMTL1000
+MTL1000login in sucessfully
