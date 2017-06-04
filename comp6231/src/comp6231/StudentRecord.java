@@ -25,7 +25,7 @@ public class StudentRecord extends Record {
         this.coursesRegistered = coursesRegistered;
         this.status = status;
         this.statusDate = statusDate;
-        this.recordId = "SD" + baseID++;
+        this.recordId = "SR" + baseID++;
     }
 
     public PublicParameters.CoursesRegistered getCoursesRegistered() {

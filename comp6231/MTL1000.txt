@@ -1,0 +1,7 @@
+2017-06-04-16-38-19 Create new manager account. 
+ Your manager id is 	MTL1000
+2017-06-04-16-38-27 MTL1000login in sucessfully
+2017-06-04-16-38-31 get Record counts is 	MTL 0  LVL 1  DDO 1  
+2017-06-04-16-39-39 Edit the RecordID is	tr10000	 fieldName 	address	 to the new value 	222222
+2017-06-04-16-39-39 editRocord 	tr10000 	 Succeddfully
+2017-06-04-16-39-39 Manager exit

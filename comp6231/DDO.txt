@@ -1,0 +1,7 @@
+2017-06-04  New thread starts for:[B@501a67ca
+2017-06-04-16-21-50  Write a new Teacher Record, the record ID is 	TR10000
+2017-06-04-16-21-50  Write new Teacher Record Successful 	the key is 	q
+2017-06-04-16-21-54  try to count all record at 	DDO
+2017-06-04-16-23-32  try to edit record forEdit the RecordID is	tr10000	 fieldName 	location	 to the new value 	ddo
+2017-06-04-16-36-16  New thread starts for:[B@1f9142a0
+2017-06-04-16-38-31  New thread starts for:[B@1f9142a0

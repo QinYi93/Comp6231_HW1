@@ -201,7 +201,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
             	findRecordToEdit(recordID, fieldName, newValue, 'T');
                 return "editRocord \t" + recordID + " \t Succeddfully";
             }
-        }
+        } 
         if (type.equals("SR")){
             String normalFieldName = fieldName.toLowerCase().trim();
             if (normalFieldName.equals("courseregistered") || normalFieldName.equals("status")
@@ -210,11 +210,11 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
                 return "editRocord \t" + recordID + " \t Succeddfully";
             }
         }
-        return "fail to edit" + recordID;
+        return "fail to edit\t" + recordID;
     }
 
     public void writeToLog(String message) throws IOException{
-    	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
     	    Date date = new Date();
         FileWriter fileWriter = new FileWriter(logFile, true);
         fileWriter.write(format.format(date)+ "  " + message + "\n");

@@ -1,0 +1,15 @@
+2017-06-04 Create new manager account. 
+ Your manager id is 	LVL1000
+2017-06-04 LVL1000login in sucessfully
+2017-06-04 Manager create new Teacher Record 	yi qin 1411 1 FRENCH MTL
+2017-06-04 Write new Teacher Record Successful 	the key is 	q
+2017-06-04 get Record counts is 	LVL 1  MTL 0  DDO 0  
+2017-06-04-16-35-28 Create new manager account. 
+ Your manager id is 	LVL1000
+2017-06-04-16-35-36 LVL1000login in sucessfully
+2017-06-04-16-36-08 Manager create new Student record 	y q SCIENCE ACTIVE Thu Sep 08 00:00:00 EDT 1994
+2017-06-04-16-36-08 Write new Student Record Successful 	the key is 	q
+2017-06-04-16-36-16 get Record counts is 	LVL 1  MTL 0  DDO 1  
+2017-06-04-16-37-56 Edit the RecordID is	sd10001	 fieldName 		 to the new value 	
+2017-06-04-16-37-56 fail to editsd10001
+2017-06-04-16-37-56 Manager exit

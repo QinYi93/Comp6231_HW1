@@ -48,7 +48,7 @@ public class ManagerClient {
     }
 
     public void writeToLog (String str) throws IOException{
-    	 	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    	 	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
  	    Date date = new Date();
         FileWriter writer = new FileWriter(log , true);
         writer.write(format.format(date) + " " + str + "\n");
@@ -208,7 +208,7 @@ public class ManagerClient {
                 	    + fieldName + "\t to the new value \t" + newValue;
                 	    client.writeToLog(message4);
                 	    System.out.println(message4);
-                	    String message5 = server.editRecord(message4, fieldName, newValue);
+                	    String message5 = server.editRecord(recordID, fieldName, newValue);
                 	    client.writeToLog(message5);
                 	    System.out.println(message5);
                 case 5:
