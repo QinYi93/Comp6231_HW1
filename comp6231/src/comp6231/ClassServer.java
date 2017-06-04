@@ -11,6 +11,8 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -212,8 +214,10 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
     }
 
     public void writeToLog(String message) throws IOException{
+    	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    	    Date date = new Date();
         FileWriter fileWriter = new FileWriter(logFile, true);
-        fileWriter.write(message + "\n");
+        fileWriter.write(format.format(date)+ "  " + message + "\n");
         fileWriter.flush();
         fileWriter.close();
     }
@@ -279,7 +283,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
                                         + "to" + newValue;
                                 this.writeToLog(message1);
                                 System.out.println(message1);
-                                ((StudentRecord)record).setCoursesRegistered(PublicParameters.CoursesRegistered.valueOf(newValue));
+                                ((StudentRecord)record).setCoursesRegistered(PublicParameters.CoursesRegistered.valueOf(newValue.toUpperCase()));
                                 break;
                             case "status":
                                 String message2 = "change recordID" + recordId
@@ -287,7 +291,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
                                         + "to" + newValue;
                                 this.writeToLog(message2);
                                 System.out.println(message2);
-                                ((StudentRecord)record).setStatus(PublicParameters.Status.valueOf(newValue));
+                                ((StudentRecord)record).setStatus(PublicParameters.Status.valueOf(newValue.toUpperCase()));
                                 break;
                             case "status date":
                                 String message3 = "change recordID" + recordId

@@ -48,8 +48,10 @@ public class ManagerClient {
     }
 
     public void writeToLog (String str) throws IOException{
+    	 	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+ 	    Date date = new Date();
         FileWriter writer = new FileWriter(log , true);
-        writer.write(str + "\n");
+        writer.write(format.format(date) + " " + str + "\n");
         writer.flush();
         writer.close();
     }

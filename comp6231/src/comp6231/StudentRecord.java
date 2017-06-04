@@ -17,7 +17,7 @@ public class StudentRecord extends Record {
 
     public StudentRecord(String firstName, String lastName) {
         super(firstName, lastName);
-        this.recordId = "SD" + baseID++;
+        this.recordId = "SR" + baseID++;
     }
 
     public StudentRecord(String firstName, String lastName, PublicParameters.CoursesRegistered coursesRegistered, PublicParameters.Status status, Date statusDate) {
