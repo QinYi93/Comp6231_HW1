@@ -79,6 +79,7 @@ public class ManagerClient {
             }
 
             //handle manager selection
+          
             switch (userChoice){
                 case 1:
                     System.out.println("Please chose your location from: MTL, LVL, DDO");
@@ -88,8 +89,8 @@ public class ManagerClient {
                         ManagerClient client = new ManagerClient(location);
                         managerList.put(client.getManagerID(), client);
                         try {
-                            client.writeToLog("Create new manager account. \n Your manager id is" + client.getManagerID());
-                            System.out.println("Your account is created. Your manager id is" + client.getManagerID());
+                            client.writeToLog("Create new manager account. \n Your manager id is \t" + client.getManagerID());
+                            System.out.println("Your account is created. Your manager id is \t" + client.getManagerID());
                             System.out.println("back to main menu");
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -132,10 +133,8 @@ public class ManagerClient {
                 default:
                     System.out.println("Invalid input, please try again.");
             }
-
+          }
         }
-
-    }
 
     public static void showMenuLevel1(){
         System.out.println("-------Welcome to Class Management System-------");
@@ -167,9 +166,9 @@ public class ManagerClient {
                     String lastName = scanner.nextLine().trim();
                     String address = scanner.nextLine().trim();
                     String phone = scanner.nextLine().replace("\\D+", "");
-                    PublicParameters.Specialization specialization = PublicParameters.Specialization.valueOf(scanner.nextLine());
-                    PublicParameters.Location location = PublicParameters.Location.valueOf(scanner.nextLine().substring(0,3));
-                    client.writeToLog("Manager create new Teacher Record" + firstName + " " + lastName + " " + address + " "
+                    PublicParameters.Specialization specialization = PublicParameters.Specialization.valueOf(scanner.nextLine().toUpperCase());
+                    PublicParameters.Location location = PublicParameters.Location.valueOf(scanner.nextLine().toUpperCase().substring(0, 3));
+                    client.writeToLog("Manager create new Teacher Record \t" + firstName + " " + lastName + " " + address + " "
                             +phone + " " + specialization + " " + location);
                     String message1 = server.createTRecord(firstName, lastName, address, phone, specialization, location);
                     client.writeToLog(message1);
@@ -183,11 +182,11 @@ public class ManagerClient {
                     System.out.println("Please input Date as format yyyy-mm-dd");
                     String SfirstName = scanner.nextLine().trim();
                     String SlastName = scanner.nextLine().trim();
-                    PublicParameters.CoursesRegistered coursesRegistered = PublicParameters.CoursesRegistered.valueOf(scanner.nextLine());
-                    PublicParameters.Status status = PublicParameters.Status.valueOf(scanner.nextLine());
+                    PublicParameters.CoursesRegistered coursesRegistered = PublicParameters.CoursesRegistered.valueOf(scanner.nextLine().toUpperCase());
+                    PublicParameters.Status status = PublicParameters.Status.valueOf(scanner.nextLine().toUpperCase());
                     Date statusDates = new SimpleDateFormat("yyyy-MM-dd").parse(scanner.nextLine().toString());
 
-                    client.writeToLog("Manager create new Student record" + SfirstName + " " + SlastName + " " + coursesRegistered +
+                    client.writeToLog("Manager create new Student record \t" + SfirstName + " " + SlastName + " " + coursesRegistered +
                     " " + status + " " + statusDates);
                     String message2 = server.createSRecord(SfirstName, SlastName, coursesRegistered, status, statusDates);
                     client.writeToLog(message2);
@@ -195,10 +194,22 @@ public class ManagerClient {
                     break;
                 case 3:
                     String message3 = server.getRecordCounts();
-                    client.writeToLog("get Record counts is" + message3);
+                    client.writeToLog("get Record counts is \t" + message3);
                     System.out.println(message3);
                     break;
                 case 4:
+                	    System.out.println("please input recordID, fieldName(TR is restricted to address, phone, location)(SR is restricted to courseregistered, status, status date), newValue to edit");
+                	    String recordID = scanner.nextLine().toLowerCase().trim();
+                	    String fieldName = scanner.nextLine().toLowerCase().trim();
+                	    String newValue = scanner.nextLine().toLowerCase().trim();
+                	    String message4 = "Edit the RecordID is\t" + recordID + "\t fieldName \t" 
+                	    + fieldName + "\t to the new value \t" + newValue;
+                	    client.writeToLog(message4);
+                	    System.out.println(message4);
+                	    String message5 = server.editRecord(message4, fieldName, newValue);
+                	    client.writeToLog(message5);
+                	    System.out.println(message5);
+                case 5:
                     System.out.println("Thank for login");
                     scanner.close();
                     client.writeToLog("Manager exit");

@@ -102,11 +102,11 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
 
 
     @Override
-    public String createTRecord(String firstName, String lastName, String address,
+    public synchronized String createTRecord(String firstName, String lastName, String address,
                                 String phone, PublicParameters.Specialization specialization,
                                 PublicParameters.Location location) throws RemoteException, IOException {
         Record TRecord = new TeacherRecord(firstName, lastName, address, phone, specialization, location);
-        String Log1 = "Write a new Teacher Record, the record ID is" + TRecord.getRecordId();
+        String Log1 = "Write a new Teacher Record, the record ID is \t" + TRecord.getRecordId();
         this.writeToLog(Log1);
         System.out.println(Log1);
         char key = lastName.charAt(0);
@@ -114,7 +114,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
             recordData.put(key, new LinkedList<Record>());
         }
         if (recordData.get(key).add(TRecord)){
-            String log2 = "Write new Teacher Record Successfult" + "the key is" +key;
+            String log2 = "Write new Teacher Record Successful \t" + "the key is \t" +key;
             this.writeToLog(log2);
             System.out.println(log2);
             TRCount++;
@@ -125,19 +125,19 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
     }
 
     @Override
-    public String createSRecord(String firstName, String lastName,
+    public synchronized String createSRecord(String firstName, String lastName,
                                 PublicParameters.CoursesRegistered coursesRegistered,
                                 PublicParameters.Status status, Date statusDate)
             throws IOException, RemoteException {
         Record record = new StudentRecord(firstName, lastName, coursesRegistered, status, statusDate);
-        String log1 = "Write a new Student Record, the record ID is" + record.getRecordId();
+        String log1 = "Write a new Student Record, the record ID is \t" + record.getRecordId();
         this.writeToLog(log1);
         System.out.println(log1);
         char key = lastName.charAt(0);
         if (!recordData.containsKey(key) || recordData.get(key).equals(null))
             recordData.put(key, new LinkedList<Record>());
         if (recordData.get(key).add(record)){
-            String log2 = "Write new Student Record Successfule" + "the key is" + key;
+            String log2 = "Write new Student Record Successful \t" + "the key is \t" + key;
             this.writeToLog(log2);
             System.out.println(log2);
             SRCount++;
@@ -146,14 +146,13 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
         return "Fail to create SRecord";
     }
 
-    @Override//dosen't finish---lose one method!!!!!
+    @Override
     public String getRecordCounts() throws IOException, RemoteException {
-        this.writeToLog("try to count all record at" + location.toString());
-        String output = this.location.toString() + " " + getTotalCount() + "： ";
+        this.writeToLog("try to count all record at \t" + location.toString());
+        String output = this.location.toString() + " " + getTotalCount() + "  ";
         for (ClassServer classServer : ServerManagerSystem.serverArrayList) {
             if (classServer.location != this.getLocation()){
-                output += classServer.getLocation().toString() + " "
-                        + requestRecordCounts(classServer);
+                output += requestRecordCounts(classServer) + "  ";
             }
         }
         return output;
@@ -198,7 +197,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
             if (normalFieldName.equals("address") || normalFieldName.equals("phone")
                     || normalFieldName.equals("location")){
             	findRecordToEdit(recordID, fieldName, newValue, 'T');
-                return "editRocord" + recordID + "Succeddfully";
+                return "editRocord \t" + recordID + " \t Succeddfully";
             }
         }
         if (type.equals("SR")){
@@ -206,59 +205,73 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
             if (normalFieldName.equals("courseregistered") || normalFieldName.equals("status")
                     || normalFieldName.equals("status date")){
                 findRecordToEdit(recordID, fieldName, newValue, 'S');
-                return "editRocord" + recordID + "Succeddfully";
+                return "editRocord \t" + recordID + " \t Succeddfully";
             }
         }
         return "fail to edit" + recordID;
     }
 
-    public synchronized void writeToLog(String message) throws IOException{
+    public void writeToLog(String message) throws IOException{
         FileWriter fileWriter = new FileWriter(logFile, true);
         fileWriter.write(message + "\n");
         fileWriter.flush();
         fileWriter.close();
     }
 
-    public void findRecordToEdit(String recordId, String fieldName, String newValue, char recordType) throws IOException{
+    public synchronized void findRecordToEdit(String recordId, String fieldName, String newValue, char recordType) throws IOException{
         for (LinkedList<Record> recordLinkedList : recordData.values()) {
             LinkedList<Record> checkRecord = recordLinkedList;
             for (Record record : checkRecord) {
+            	System.out.println("get information before editing");
                 if(record.getRecordId().equals(recordId)){
                     if (recordType == 'T') {
+                    	System.out.println("recordId is \t" + recordId + "\t address \t" 
+                    + ((TeacherRecord)record).getAddress() + "\t phone\t"
+                    + ((TeacherRecord)record).getPhone() + "\t location \t"
+                    + ((TeacherRecord)record).getLocation()); 
                         switch (fieldName) {
                             case "address":
-                                this.writeToLog("change recordID" + recordId
-                                        + "address" + ((TeacherRecord)record).getAddress() + "to" + newValue);
-                                System.out.println("change recordID" + recordId
-                                        + "address" + ((TeacherRecord)record).getAddress() + "to" + newValue);
+                                this.writeToLog("change recordID \t" + recordId
+                                       + "\t address"+ "\t" + ((TeacherRecord)record).getAddress()
+                                       + "\t to \t" + newValue);
+                                System.out.println("change recordID \t" + recordId
+                                        + "\t address \t" + ((TeacherRecord)record).getAddress()
+                                        + "\t to \t" + newValue);
                                 ((TeacherRecord)record).setAddress(newValue);
                                 break;
                             case "phone":
-                                this.writeToLog("change recordID" + recordId
-                                        + "phone" + ((TeacherRecord)record).getPhone() + "to" + newValue);
-                                System.out.println("change recordID" + recordId
-                                        + "address" + ((TeacherRecord)record).getPhone() + "to" + newValue);
+                                this.writeToLog("change recordID \t" + recordId
+                                        + "\t phone \t" + ((TeacherRecord)record).getPhone() 
+                                        + "\t to \t" + newValue);
+                                System.out.println("change recordID \t" + recordId
+                                        + "\t address \t" + ((TeacherRecord)record).getPhone() 
+                                        + "\t to \t" + newValue);
                                 ((TeacherRecord)record).setPhone(newValue);
                                 break;
                             case "location":
                                 if (newValue.equals("MTL") || newValue.equals("LVL") || newValue.equals("DDO")){
-                                    this.writeToLog("change recordID" + recordId
-                                            + "location" + ((TeacherRecord)record).getLocation() + "to" + newValue);
-                                    System.out.println("change recordID" + recordId
-                                            + "location" + ((TeacherRecord)record).getLocation() + "to" + newValue);
+                                    this.writeToLog("change recordID \t" + recordId
+                                            + "\t location \t" + ((TeacherRecord)record).getLocation() 
+                                            + "\t to \t" + newValue);
+                                    System.out.println("change recordID \t" + recordId
+                                            + "\t location \t" + ((TeacherRecord)record).getLocation() 
+                                            + "\t to \t" + newValue);
                                     ((TeacherRecord)record).setLocation(newValue);
-                                    for (ClassServer classServer : ServerManagerSystem.serverArrayList) {
-                                        if (classServer.getLocation().equals(PublicParameters.Location.valueOf(newValue)))
-                                            requestCreateRecord(classServer, record);
-                                    }
-                                    recordLinkedList.remove(record);
                                 }
                                 break;
                             default:
                                 System.out.println("Invalid input!");
                         }
+                        System.out.println("After edit recordId is \t" + recordId + "\t address \t" 
+                                + ((TeacherRecord)record).getAddress() + "\t phone\t"
+                                + ((TeacherRecord)record).getPhone() + "\t location \t"
+                                + ((TeacherRecord)record).getLocation()); 
                     }
                     if (recordType == 'S'){
+                    	System.out.println("recordId is \t" + recordId + "\t courseregistered \t" 
+                                + ((StudentRecord)record).getCoursesRegistered() + "\t status\t"
+                                + ((StudentRecord)record).getStatus() + "\t status date \t"
+                                + ((StudentRecord)record).getStatusDate()); 
                         switch (fieldName){
                             case "courseregistered":
                                 String message1 = "change recordID" + recordId
@@ -287,6 +300,10 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
                             default:
                                 System.out.println("Invalid input!");
                         }
+                     	System.out.println("After editing -recordId is \t" + recordId + "\t courseregistered \t" 
+                                + ((StudentRecord)record).getCoursesRegistered() + "\t status\t"
+                                + ((StudentRecord)record).getStatus() + "\t status date \t"
+                                + ((StudentRecord)record).getStatusDate()); 
                     }
                 }
             }

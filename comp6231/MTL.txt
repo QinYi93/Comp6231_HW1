@@ -4003,3 +4003,16 @@ try to count all record atMTL
 Write a new Teacher Record, the record ID isTR10000
 Write new Teacher Record Successfultthe key isq
 try to count all record atMTL
+Write a new Teacher Record, the record ID isTR10000
+Write new Teacher Record Successfultthe key isQ
+try to count all record atMTL
+Write a new Teacher Record, the record ID isTR10001
+Write new Teacher Record Successfultthe key isq
+try to count all record atMTL
+Write a new Teacher Record, the record ID isTR10000
+Write new Teacher Record Successfultthe key isq
+try to count all record at 	MTL
+Write a new Teacher Record, the record ID is 	TR10000
+Write new Teacher Record Successful 	the key is 	q
+try to count all record at 	MTL
+try to edit record forEdit the RecordID is	tr10000	 fieldName 	address	 to the new value 	23333
