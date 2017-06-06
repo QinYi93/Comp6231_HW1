@@ -233,12 +233,17 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
             LinkedList<Record> checkRecord = recordLinkedList;
             for (Record record : checkRecord) {
             	System.out.println("get information before editing");
-                if(record.getRecordId().equals(recordId)){
+                if(record.getRecordId().equalsIgnoreCase(recordId)){
                     if (recordType == 'T') {
                     	System.out.println("recordId is \t" + recordId + "\t address \t" 
                     + ((TeacherRecord)record).getAddress() + "\t phone\t"
                     + ((TeacherRecord)record).getPhone() + "\t location \t"
-                    + ((TeacherRecord)record).getLocation()); 
+                    + ((TeacherRecord)record).getLocation());
+                    	
+                    	this.writeToLog("recordId is \t" + recordId + "\t address \t" 
+                    + ((TeacherRecord)record).getAddress() + "\t phone\t"
+                    + ((TeacherRecord)record).getPhone() + "\t location \t"
+                    + ((TeacherRecord)record).getLocation());
                         switch (fieldName) {
                             case "address":
                                 this.writeToLog("change recordID \t" + recordId
@@ -276,12 +281,22 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
                                 + ((TeacherRecord)record).getAddress() + "\t phone\t"
                                 + ((TeacherRecord)record).getPhone() + "\t location \t"
                                 + ((TeacherRecord)record).getLocation()); 
+                        
+                        this.writeToLog("After edit recordId is \t" + recordId + "\t address \t" 
+                                + ((TeacherRecord)record).getAddress() + "\t phone\t"
+                                + ((TeacherRecord)record).getPhone() + "\t location \t"
+                                + ((TeacherRecord)record).getLocation());
                     }
                     if (recordType == 'S'){
                     	System.out.println("recordId is \t" + recordId + "\t courseregistered \t" 
                                 + ((StudentRecord)record).getCoursesRegistered() + "\t status\t"
                                 + ((StudentRecord)record).getStatus() + "\t status date \t"
-                                + ((StudentRecord)record).getStatusDate()); 
+                                + ((StudentRecord)record).getStatusDate());
+                    	
+                    	this.writeToLog("recordId is \t" + recordId + "\t courseregistered \t" 
+                                + ((StudentRecord)record).getCoursesRegistered() + "\t status\t"
+                                + ((StudentRecord)record).getStatus() + "\t status date \t"
+                                + ((StudentRecord)record).getStatusDate());
                         switch (fieldName){
                             case "courseregistered":
                                 String message1 = "change recordID" + recordId
@@ -310,10 +325,15 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
                             default:
                                 System.out.println("Invalid input!");
                         }
-                     	System.out.println("After editing -recordId is \t" + recordId + "\t courseregistered \t" 
+                     	System.out.println("After editing recordId is \t" + recordId + "\t courseregistered \t" 
                                 + ((StudentRecord)record).getCoursesRegistered() + "\t status\t"
                                 + ((StudentRecord)record).getStatus() + "\t status date \t"
                                 + ((StudentRecord)record).getStatusDate()); 
+                     	
+                     	this.writeToLog("recordId is \t" + recordId + "\t courseregistered \t" 
+                                + ((StudentRecord)record).getCoursesRegistered() + "\t status\t"
+                                + ((StudentRecord)record).getStatus() + "\t status date \t"
+                                + ((StudentRecord)record).getStatusDate());
                     }
                 }
             }

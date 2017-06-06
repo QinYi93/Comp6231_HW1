@@ -1,0 +1,21 @@
+2017-06-06-10-54-31  Write a new Teacher Record, the record ID is 	TR10000
+2017-06-06-10-54-31  Write new Teacher Record Successful 	the key is 	Q
+2017-06-06-10-54-36  try to count all record at 	MTL
+2017-06-06-10-55-24  try to edit record fortr10000
+2017-06-06-11-02-57  Write a new Student Record, the record ID is 	SR10001
+2017-06-06-11-02-57  Write new Student Record Successful 	the key is 	q
+2017-06-06-11-03-01  try to count all record at 	MTL
+2017-06-06-11-04-03  try to edit record forsr10001
+2017-06-06-11-12-47  Write a new Teacher Record, the record ID is 	TR10000
+2017-06-06-11-12-47  Write new Teacher Record Successful 	the key is 	Q
+2017-06-06-11-14-07  try to edit record fortr10000
+2017-06-06-11-30-50  Write a new Teacher Record, the record ID is 	TR10000
+2017-06-06-11-30-50  Write new Teacher Record Successful 	the key is 	q
+2017-06-06-11-30-53  try to count all record at 	MTL
+2017-06-06-11-33-38  Write a new Teacher Record, the record ID is 	TR10000
+2017-06-06-11-33-38  Write new Teacher Record Successful 	the key is 	q
+2017-06-06-11-33-42  try to count all record at 	MTL
+2017-06-06-11-34-24  try to edit record fortr10000
+2017-06-06-11-34-24  recordId is 	tr10000	 address 	201	 phone	1222	 location 	MTL
+2017-06-06-11-34-24  change recordID 	tr10000	 address	201	 to 	244444444444
+2017-06-06-11-34-24  After edit recordId is 	tr10000	 address 	244444444444	 phone	1222	 location 	MTL
