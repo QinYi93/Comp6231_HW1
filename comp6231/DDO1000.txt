@@ -1,9 +1,0 @@
-2017-06-04-16-21-15 Create new manager account. 
- Your manager id is 	DDO1000
-2017-06-04-16-21-36 DDO1000login in sucessfully
-2017-06-04-16-21-49 Manager create new Teacher Record 	yi qin 1 1 MATHS LVL
-2017-06-04-16-21-50 Write new Teacher Record Successful 	the key is 	q
-2017-06-04-16-21-54 get Record counts is 	DDO 1  MTL 0  LVL 0  
-2017-06-04-16-23-32 Edit the RecordID is	tr10000	 fieldName 	location	 to the new value 	ddo
-2017-06-04-16-23-32 fail to editEdit the RecordID is	tr10000	 fieldName 	location	 to the new value 	ddo
-2017-06-04-16-23-32 Manager exit

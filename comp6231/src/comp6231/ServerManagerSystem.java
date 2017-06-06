@@ -27,6 +27,7 @@ public class ServerManagerSystem {
 
             System.out.println("Servers are up and running");
             
+            // create registry, RMI binding
             try {
 				mtl.exportServer();
 				lvl.exportServer();
@@ -36,6 +37,7 @@ public class ServerManagerSystem {
 				e.printStackTrace();
 			}
             
+            //UDP waiting request thread
 			new Thread() {
 				@Override
 				public void run() {

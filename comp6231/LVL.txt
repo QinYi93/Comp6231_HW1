@@ -1,9 +1,0 @@
-2017-06-04  Write a new Teacher Record, the record ID is 	TR10000
-2017-06-04  Write new Teacher Record Successful 	the key is 	q
-2017-06-04  try to count all record at 	LVL
-2017-06-04-16-21-54  New thread starts for:[B@3436ef5b
-2017-06-04-16-36-08  Write a new Student Record, the record ID is 	SD10001
-2017-06-04-16-36-08  Write new Student Record Successful 	the key is 	q
-2017-06-04-16-36-16  try to count all record at 	LVL
-2017-06-04-16-37-56  try to edit record forsd10001
-2017-06-04-16-38-31  New thread starts for:[B@3436ef5b

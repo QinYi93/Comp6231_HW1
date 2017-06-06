@@ -39,6 +39,12 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
         recordData = new HashMap<Character, LinkedList<Record>>();
     }
 
+    /**
+     * 
+      * This method create registry, RMI binding with registry
+      * 
+      * @throws Exception
+     */
     public void exportServer() throws Exception{
 //    		System.setProperty("java.rmi.server.hostname","192.168.1.2");
         Registry registry = LocateRegistry.createRegistry(location.getPort());

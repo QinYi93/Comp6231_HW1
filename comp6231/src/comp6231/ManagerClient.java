@@ -19,8 +19,8 @@ import java.util.Scanner;
 import comp6231.PublicParameters.Location;
 
 /**
- * This class
- *
+ * This class access server depends on location.
+ * Save the log file in corresponding location
  * @author Yi Qin
  * @date 2017-05-28
  */
@@ -46,7 +46,12 @@ public class ManagerClient {
     public String getManagerID() {
         return managerID;
     }
-
+    
+    /**
+      * This method each manager has its own log.
+      * @param str
+      * @throws IOException
+     */
     public void writeToLog (String str) throws IOException{
     	 	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
  	    Date date = new Date();
@@ -109,7 +114,6 @@ public class ManagerClient {
                     if(managerList.containsKey(managerId)){
                         ManagerClient client = managerList.get(managerId);
                         System.out.println("*** Welcome to class system, your managerID is\t" + managerId+"\t***");
-                        //需要登录到相应的地方服务器？？？？
                         try {
                             client.writeToLog(managerId + "login in sucessfully");
                         } catch (IOException e) {

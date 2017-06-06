@@ -34,18 +34,10 @@ public class Record {
     }
 
     public String getRecordId(){
-//        if(this instanceof StudentRecord){
-//            return ((StudentRecord)this).getRecordId();
-//        }
-//        if (this instanceof TeacherRecord){
-//            return ((TeacherRecord)this).getRecordId();
-//        }
-//        return "";
         return getRecordID();
     }
 
 	public String getRecordID() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
