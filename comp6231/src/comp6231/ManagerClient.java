@@ -24,7 +24,7 @@ import comp6231.PublicParameters.Location;
  * @author Yi Qin
  * @date 2017-05-28
  */
-public class ManagerClient {
+public class ManagerClient{
 
     protected static int managerBaseID = 1000;
     private String managerID;
@@ -53,7 +53,7 @@ public class ManagerClient {
       * @throws IOException
      */
     public void writeToLog (String str) throws IOException{
-    	 	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+    	 	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
  	    Date date = new Date();
         FileWriter writer = new FileWriter(log , true);
         writer.write(format.format(date) + " " + str + "\n");

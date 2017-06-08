@@ -1,21 +1,46 @@
-2017-06-06-10-54-31  Write a new Teacher Record, the record ID is 	TR10000
-2017-06-06-10-54-31  Write new Teacher Record Successful 	the key is 	Q
-2017-06-06-10-54-36  try to count all record at 	MTL
-2017-06-06-10-55-24  try to edit record fortr10000
-2017-06-06-11-02-57  Write a new Student Record, the record ID is 	SR10001
-2017-06-06-11-02-57  Write new Student Record Successful 	the key is 	q
-2017-06-06-11-03-01  try to count all record at 	MTL
-2017-06-06-11-04-03  try to edit record forsr10001
-2017-06-06-11-12-47  Write a new Teacher Record, the record ID is 	TR10000
-2017-06-06-11-12-47  Write new Teacher Record Successful 	the key is 	Q
-2017-06-06-11-14-07  try to edit record fortr10000
-2017-06-06-11-30-50  Write a new Teacher Record, the record ID is 	TR10000
-2017-06-06-11-30-50  Write new Teacher Record Successful 	the key is 	q
-2017-06-06-11-30-53  try to count all record at 	MTL
-2017-06-06-11-33-38  Write a new Teacher Record, the record ID is 	TR10000
-2017-06-06-11-33-38  Write new Teacher Record Successful 	the key is 	q
-2017-06-06-11-33-42  try to count all record at 	MTL
-2017-06-06-11-34-24  try to edit record fortr10000
-2017-06-06-11-34-24  recordId is 	tr10000	 address 	201	 phone	1222	 location 	MTL
-2017-06-06-11-34-24  change recordID 	tr10000	 address	201	 to 	244444444444
-2017-06-06-11-34-24  After edit recordId is 	tr10000	 address 	244444444444	 phone	1222	 location 	MTL
+2017-06-06 21:45:24  try to count all record at 	MTL
+2017-06-06 21:45:54  Write a new Student Record, the record ID is 	SR10000
+2017-06-06 21:45:54  Write new Student Record Successful 	the key is 	w
+2017-06-06 21:48:54  New thread starts for:[B@9c30c2b
+2017-06-06 21:50:22  New thread starts for:[B@9c30c2b
+2017-06-06 22:17:04  New thread starts for:[B@9c30c2b
+2017-06-08 10:29:45  Write a new Teacher Record, the record ID is 	TR10000
+2017-06-08 10:29:45  Write new Teacher Record Successful 	the key is 	Q
+2017-06-08 10:29:50  try to count all record at 	MTL
+2017-06-08 10:30:22  try to edit record fortr10000
+2017-06-08 10:30:22  recordId is 	tr10000	 address 	1411 DU FORT	 phone	5146217878	 location 	MTL
+2017-06-08 10:30:22  change recordID 	tr10000	 location 	MTL	 to 	lvl
+2017-06-08 10:39:34  Write a new Teacher Record, the record ID is 	TR10002
+2017-06-08 10:39:34  Write new Teacher Record Successful 	the key is 	q
+2017-06-08 10:40:00  try to edit record fortr10002
+2017-06-08 10:40:00  recordId is 	tr10002	 address 	1411 du fort	 phone	23333333	 location 	MTL
+2017-06-08 10:40:00  change recordID 	tr10002	 location 	MTL	 to 	lvl
+2017-06-08 10:43:26  Write a new Teacher Record, the record ID is 	TR10000
+2017-06-08 10:43:26  Write new Teacher Record Successful 	the key is 	q
+2017-06-08 10:43:53  try to edit record fortr10000
+2017-06-08 10:43:53  recordId is 	tr10000	 address 	1411	 phone	4147338290	 location 	MTL
+2017-06-08 10:43:53  change recordID 	tr10000	 location 	MTL	 to 	lvl
+2017-06-08 11:04:12  Write a new Teacher Record, the record ID is 	TR10000
+2017-06-08 11:04:12  Write new Teacher Record Successful 	the key is 	q
+2017-06-08 11:04:33  try to edit record fortr10000
+2017-06-08 11:06:26  recordId is 	tr10000	 address 	1411	 phone	1411	 location 	MTL
+2017-06-08 11:06:40  change recordID 	tr10000	 location 	MTL	 to 	lvl
+2017-06-08 11:07:36  After edit recordId is 	tr10000	 address 	1411	 phone	1411	 location 	LVL
+2017-06-08 11:12:44  Write a new Student Record, the record ID is 	SR10000
+2017-06-08 11:12:44  Write new Student Record Successful 	the key is 	Q
+2017-06-08 11:13:14  try to edit record forsr10000
+2017-06-08 11:13:14  recordId is 	sr10000	 courseregistered 	MATHS	 status	ACTIVE	 status date 	Thu Apr 08 00:00:00 EDT 1993
+2017-06-08 11:13:14  change recordIDsr10000statusACTIVEtoinactive
+2017-06-08 11:13:14  recordId is 	sr10000	 courseregistered 	MATHS	 status	INACTIVE	 status date 	Thu Apr 08 00:00:00 EDT 1993
+2017-06-08 11:19:38  Write a new Teacher Record, the record ID is 	TR10000
+2017-06-08 11:19:38  Write new Teacher Record Successful 	the key is 	q
+2017-06-08 11:20:10  try to edit record fortr10000
+2017-06-08 11:20:10  recordId is 	tr10000	 address 	1411	 phone	5146217189	 location 	MTL
+2017-06-08 11:20:10  change recordID 	tr10000	 location 	MTL	 to 	ddo
+2017-06-08 11:20:10  After edit recordId is 	tr10000	 address 	1411	 phone	5146217189	 location 	DDO
+2017-06-08 11:38:39  Write a new Teacher Record, the record ID is 	TR10001
+2017-06-08 11:38:39  Write new Teacher Record Successful 	the key is 	Q
+2017-06-08 11:39:01  try to edit record fortr10001
+2017-06-08 11:39:01  recordId is 	tr10001	 address 	1444	 phone	5146217189	 location 	MTL
+2017-06-08 11:39:01  change recordID 	tr10001	 location 	MTL	 to 	lvl
+2017-06-08 11:39:01  After edit recordId is 	tr10001	 address 	1444	 phone	5146217189	 location 	LVL

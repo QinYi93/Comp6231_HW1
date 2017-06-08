@@ -1,3 +1,25 @@
-2017-06-06-10-54-36  New thread starts for:[B@3270040d
-2017-06-06-11-03-01  New thread starts for:[B@3270040d
-2017-06-06-11-33-42  New thread starts for:[B@4b931025
+2017-06-06 21:45:24  New thread starts for:[B@18f113d5
+2017-06-06 21:47:32  Write a new Teacher Record, the record ID is 	TR10001
+2017-06-06 21:47:32  Write new Teacher Record Successful 	the key is 	m
+2017-06-06 21:48:54  New thread starts for:[B@18f113d5
+2017-06-06 21:50:22  try to count all record at 	LVL
+2017-06-06 22:03:06  try to edit record fortr10001
+2017-06-06 22:03:06  recordId is 	tr10001	 address 	141111	 phone	5146217189	 location 	LVL
+2017-06-06 22:03:06  After edit recordId is 	tr10001	 address 	141111	 phone	5146217189	 location 	LVL
+2017-06-06 22:04:41  try to edit record fortr10001
+2017-06-06 22:04:41  recordId is 	tr10001	 address 	141111	 phone	5146217189	 location 	LVL
+2017-06-06 22:04:41  change recordID 	tr10001	 phone 	5146217189	 to 	44444444
+2017-06-06 22:04:41  After edit recordId is 	tr10001	 address 	141111	 phone	44444444	 location 	LVL
+2017-06-06 22:06:09  try to edit record fortr10001
+2017-06-06 22:06:09  recordId is 	tr10001	 address 	141111	 phone	44444444	 location 	LVL
+2017-06-06 22:06:09  After edit recordId is 	tr10001	 address 	141111	 phone	44444444	 location 	LVL
+2017-06-06 22:08:21  try to edit record forabc
+2017-06-06 22:17:01  Write a new Teacher Record, the record ID is 	TR10003
+2017-06-06 22:17:01  Write new Teacher Record Successful 	the key is 	q
+2017-06-06 22:17:04  try to count all record at 	LVL
+2017-06-08 10:29:50  New thread starts for:[B@58b0222
+2017-06-08 10:31:34  Write a new Teacher Record, the record ID is 	TR10001
+2017-06-08 10:31:34  Write new Teacher Record Successful 	the key is 	q
+2017-06-08 10:32:02  try to edit record fortr10001
+2017-06-08 10:32:02  recordId is 	tr10001	 address 	1411 du fort	 phone	4156227788	 location 	MTL
+2017-06-08 10:32:02  change recordID 	tr10001	 location 	MTL	 to 	lvl

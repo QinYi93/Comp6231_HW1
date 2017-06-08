@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import comp6231.PublicParameters.Location;
+
 /**
  * This class
  *
@@ -46,7 +48,6 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
       * @throws Exception
      */
     public void exportServer() throws Exception{
-//    		System.setProperty("java.rmi.server.hostname","192.168.1.2");
         Registry registry = LocateRegistry.createRegistry(location.getPort());
         registry.bind(location.toString(), this);
     }
@@ -54,6 +55,11 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
     public void openUDPListener(){
         DatagramSocket aSocket = null;
         try {
+        	//server for UDP
+        	//create a datagram socket and bind it to any local port
+        	//place data in byte array
+        	//create a datagram packet and specify data array and receiver address
+        	//invoke the send method with reference to the packet
             aSocket = new DatagramSocket(this.location.getPort());
             byte[] buffer = new byte[1000];
             while (true){
@@ -82,18 +88,14 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
         DatagramSocket socket = null;
         DatagramPacket request = null;
         ClassServer server = null;
-
         String recordCount;
-
+        
         public thread(DatagramSocket socket, DatagramPacket request, ClassServer server) throws IOException {
             this.socket = socket;
             this.request = request;
             this.server = server;
-
-//            if (request.getData().toString().equals("RecordCounts")) {
 				recordCount = server.getLocation().toString() + " " + server.getTotalCount() + " ";
 				this.start();
-//			}
         }
 
         @Override
@@ -165,7 +167,8 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
         }
         return output;
     }
-
+    
+    //client for UDP
     public String requestRecordCounts(ClassServer server){
         DatagramSocket aSocket = null;
         try {
@@ -220,7 +223,7 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
     }
 
     public void writeToLog(String message) throws IOException{
-    	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+    	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     	    Date date = new Date();
         FileWriter fileWriter = new FileWriter(logFile, true);
         fileWriter.write(format.format(date)+ "  " + message + "\n");
@@ -264,15 +267,13 @@ public class ClassServer extends UnicastRemoteObject implements DcmsInterface {
                                 ((TeacherRecord)record).setPhone(newValue);
                                 break;
                             case "location":
-                                if (newValue.equals("MTL") || newValue.equals("LVL") || newValue.equals("DDO")){
                                     this.writeToLog("change recordID \t" + recordId
                                             + "\t location \t" + ((TeacherRecord)record).getLocation() 
                                             + "\t to \t" + newValue);
                                     System.out.println("change recordID \t" + recordId
                                             + "\t location \t" + ((TeacherRecord)record).getLocation() 
                                             + "\t to \t" + newValue);
-                                    ((TeacherRecord)record).setLocation(newValue);
-                                }
+                                    ((TeacherRecord)record).setLocation(PublicParameters.Location.valueOf(newValue.toUpperCase()));
                                 break;
                             default:
                                 System.out.println("Invalid input!");

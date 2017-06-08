@@ -1,0 +1,46 @@
+2017-06-06 21:46:36 Create new manager account. 
+ Your manager id is 	LVL1000
+2017-06-06 21:46:46 LVL1000login in sucessfully
+2017-06-06 21:47:32 Manager create new Teacher Record 	xiao ming 141111 5146217189 FRENCH LVL
+2017-06-06 21:47:32 Write new Teacher Record Successful 	the key is 	m
+2017-06-06 21:47:40 Manager exit
+2017-06-06 21:50:04 Create new manager account. 
+ Your manager id is 	LVL1000
+2017-06-06 21:50:17 LVL1000login in sucessfully
+2017-06-06 21:50:22 get Record counts is 	LVL 1  MTL 1  DDO 1  
+2017-06-06 22:03:06 Edit the RecordID is	tr10001	 fieldName 	location	 to the new value 	mtl
+2017-06-06 22:03:06 editRocord 	tr10001 	 Succeddfully
+2017-06-06 22:03:06 Manager exit
+2017-06-06 22:04:03 Create new manager account. 
+ Your manager id is 	LVL1000
+2017-06-06 22:04:11 LVL1000login in sucessfully
+2017-06-06 22:04:41 Edit the RecordID is	tr10001	 fieldName 	phone	 to the new value 	44444444
+2017-06-06 22:04:41 editRocord 	tr10001 	 Succeddfully
+2017-06-06 22:04:41 Manager exit
+2017-06-06 22:05:38 Create new manager account. 
+ Your manager id is 	LVL1000
+2017-06-06 22:05:45 LVL1000login in sucessfully
+2017-06-06 22:06:09 Edit the RecordID is	tr10001	 fieldName 	location	 to the new value 	mtl
+2017-06-06 22:06:09 editRocord 	tr10001 	 Succeddfully
+2017-06-06 22:06:09 Manager exit
+2017-06-06 22:07:32 Create new manager account. 
+ Your manager id is 	LVL1000
+2017-06-06 22:07:39 LVL1000login in sucessfully
+2017-06-06 22:08:21 Edit the RecordID is	abc	 fieldName 	locayion	 to the new value 	t
+2017-06-06 22:08:21 fail to edit	abc
+2017-06-06 22:08:21 Manager exit
+2017-06-06 22:16:23 Create new manager account. 
+ Your manager id is 	LVL1000
+2017-06-06 22:16:29 LVL1000login in sucessfully
+2017-06-06 22:17:01 Manager create new Teacher Record 	yi qin 1411 5146666666 MATHS LVL
+2017-06-06 22:17:01 Write new Teacher Record Successful 	the key is 	q
+2017-06-06 22:17:04 get Record counts is 	LVL 2  MTL 1  DDO 1  
+2017-06-08 10:27:28 Create new manager account. 
+ Your manager id is 	LVL1000
+2017-06-08 10:27:52 LVL1000login in sucessfully
+2017-06-08 10:30:58 Create new manager account. 
+ Your manager id is 	LVL1000
+2017-06-08 10:31:05 LVL1000login in sucessfully
+2017-06-08 10:31:34 Manager create new Teacher Record 	yi qin 1411 du fort 4156227788 FRENCH MTL
+2017-06-08 10:31:34 Write new Teacher Record Successful 	the key is 	q
+2017-06-08 10:32:02 Edit the RecordID is	tr10001	 fieldName 	location	 to the new value 	lvl

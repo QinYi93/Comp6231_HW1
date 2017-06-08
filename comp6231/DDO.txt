@@ -1,3 +1,7 @@
-2017-06-06-10-54-36  New thread starts for:[B@71f66c31
-2017-06-06-11-03-01  New thread starts for:[B@71f66c31
-2017-06-06-11-33-42  New thread starts for:[B@61bc8424
+2017-06-06 21:45:24  New thread starts for:[B@320640ca
+2017-06-06 21:48:49  Write a new Student Record, the record ID is 	SR10002
+2017-06-06 21:48:49  Write new Student Record Successful 	the key is 	m
+2017-06-06 21:48:54  try to count all record at 	DDO
+2017-06-06 21:50:22  New thread starts for:[B@320640ca
+2017-06-06 22:17:04  New thread starts for:[B@320640ca
+2017-06-08 10:29:50  New thread starts for:[B@3855317c

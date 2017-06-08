@@ -1,0 +1,7 @@
+2017-06-06 21:48:01 Create new manager account. 
+ Your manager id is 	DDO1000
+2017-06-06 21:48:14 DDO1000login in sucessfully
+2017-06-06 21:48:49 Manager create new Student record 	wang ming MATHS INACTIVE Wed Sep 08 00:00:00 EDT 2004
+2017-06-06 21:48:49 Write new Student Record Successful 	the key is 	m
+2017-06-06 21:48:54 get Record counts is 	DDO 1  MTL 1  LVL 1  
+2017-06-06 21:49:14 Manager exit

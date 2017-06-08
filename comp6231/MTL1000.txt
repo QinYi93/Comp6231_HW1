@@ -1,40 +1,58 @@
-2017-06-06-10-54-06 Create new manager account. 
+2017-06-06 21:45:06 Create new manager account. 
  Your manager id is 	MTL1000
-2017-06-06-10-54-16 MTL1000login in sucessfully
-2017-06-06-10-54-31 Manager create new Teacher Record 	YI QIN 1 1 FRENCH MTL
-2017-06-06-10-54-31 Write new Teacher Record Successful 	the key is 	Q
-2017-06-06-10-54-36 get Record counts is 	MTL 1  LVL 0  DDO 0  
-2017-06-06-10-55-24 Edit the RecordID is	tr10000	 fieldName 	address	 to the new value 	23333
-2017-06-06-10-55-24 editRocord 	tr10000 	 Succeddfully
-2017-06-06-10-55-24 Manager exit
-2017-06-06-11-02-23 Create new manager account. 
+2017-06-06 21:45:19 MTL1000login in sucessfully
+2017-06-06 21:45:24 get Record counts is 	MTL 0  LVL 0  DDO 0  
+2017-06-06 21:45:54 Manager create new Student record 	yi win MATHS ACTIVE Thu Apr 08 00:00:00 EDT 1993
+2017-06-06 21:45:54 Write new Student Record Successful 	the key is 	w
+2017-06-06 21:46:05 Manager exit
+2017-06-08 10:29:01 Create new manager account. 
  Your manager id is 	MTL1000
-2017-06-06-11-02-33 MTL1000login in sucessfully
-2017-06-06-11-02-57 Manager create new Student record 	yi qin MATHS ACTIVE Thu Apr 08 00:00:00 EDT 1993
-2017-06-06-11-02-57 Write new Student Record Successful 	the key is 	q
-2017-06-06-11-03-01 get Record counts is 	MTL 2  LVL 0  DDO 0  
-2017-06-06-11-04-03 Edit the RecordID is	sr10001	 fieldName 	status	 to the new value 	inactive
-2017-06-06-11-04-03 editRocord 	sr10001 	 Succeddfully
-2017-06-06-11-04-03 Manager exit
-2017-06-06-11-09-56 Create new manager account. 
+2017-06-08 10:29:05 MTL1000login in sucessfully
+2017-06-08 10:29:45 Manager create new Teacher Record 	YI QIN 1411 DU FORT 5146217878 FRENCH MTL
+2017-06-08 10:29:45 Write new Teacher Record Successful 	the key is 	Q
+2017-06-08 10:29:50 get Record counts is 	MTL 1  LVL 0  DDO 0  
+2017-06-08 10:30:22 Edit the RecordID is	tr10000	 fieldName 	location	 to the new value 	lvl
+2017-06-08 10:39:03 Create new manager account. 
  Your manager id is 	MTL1000
-2017-06-06-11-12-17 MTL1000login in sucessfully
-2017-06-06-11-12-47 Manager create new Teacher Record 	YI QIN 1 1 FRENCH MTL
-2017-06-06-11-12-47 Write new Teacher Record Successful 	the key is 	Q
-2017-06-06-11-14-07 Edit the RecordID is	tr10000	 fieldName 	address	 to the new value 	2444444
-2017-06-06-11-18-04 editRocord 	tr10000 	 Succeddfully
-2017-06-06-11-18-04 Manager exit
-2017-06-06-11-30-13 Create new manager account. 
+2017-06-08 10:39:09 MTL1000login in sucessfully
+2017-06-08 10:39:34 Manager create new Teacher Record 	yi qin 1411 du fort 23333333 FRENCH MTL
+2017-06-08 10:39:34 Write new Teacher Record Successful 	the key is 	q
+2017-06-08 10:40:00 Edit the RecordID is	tr10002	 fieldName 	location	 to the new value 	lvl
+2017-06-08 10:43:02 Create new manager account. 
  Your manager id is 	MTL1000
-2017-06-06-11-30-28 MTL1000login in sucessfully
-2017-06-06-11-30-50 Manager create new Teacher Record 	yi qin 201 14444 MATHS MTL
-2017-06-06-11-30-50 Write new Teacher Record Successful 	the key is 	q
-2017-06-06-11-33-15 Create new manager account. 
+2017-06-08 10:43:07 MTL1000login in sucessfully
+2017-06-08 10:43:26 Manager create new Teacher Record 	yi qin 1411 4147338290 FRENCH MTL
+2017-06-08 10:43:26 Write new Teacher Record Successful 	the key is 	q
+2017-06-08 10:43:53 Edit the RecordID is	tr10000	 fieldName 	location	 to the new value 	lvl
+2017-06-08 11:03:51 Create new manager account. 
  Your manager id is 	MTL1000
-2017-06-06-11-33-22 MTL1000login in sucessfully
-2017-06-06-11-33-38 Manager create new Teacher Record 	yi qin 201 1222 FRENCH MTL
-2017-06-06-11-33-38 Write new Teacher Record Successful 	the key is 	q
-2017-06-06-11-33-42 get Record counts is 	MTL 1  LVL 0  DDO 0  
-2017-06-06-11-34-24 Edit the RecordID is	tr10000	 fieldName 	address	 to the new value 	244444444444
-2017-06-06-11-34-24 editRocord 	tr10000 	 Succeddfully
-2017-06-06-11-34-24 Manager exit
+2017-06-08 11:03:57 MTL1000login in sucessfully
+2017-06-08 11:04:12 Manager create new Teacher Record 	yi qin 1411 1411 FRENCH MTL
+2017-06-08 11:04:12 Write new Teacher Record Successful 	the key is 	q
+2017-06-08 11:04:33 Edit the RecordID is	tr10000	 fieldName 	location	 to the new value 	lvl
+2017-06-08 11:08:21 editRocord 	tr10000 	 Succeddfully
+2017-06-08 11:08:21 Manager exit
+2017-06-08 11:12:21 Create new manager account. 
+ Your manager id is 	MTL1000
+2017-06-08 11:12:25 MTL1000login in sucessfully
+2017-06-08 11:12:44 Manager create new Student record 	YI QIN MATHS ACTIVE Thu Apr 08 00:00:00 EDT 1993
+2017-06-08 11:12:44 Write new Student Record Successful 	the key is 	Q
+2017-06-08 11:13:14 Edit the RecordID is	sr10000	 fieldName 	status	 to the new value 	inactive
+2017-06-08 11:13:14 editRocord 	sr10000 	 Succeddfully
+2017-06-08 11:13:14 Manager exit
+2017-06-08 11:18:51 Create new manager account. 
+ Your manager id is 	MTL1000
+2017-06-08 11:18:59 MTL1000login in sucessfully
+2017-06-08 11:19:38 Manager create new Teacher Record 	yi qin 1411 5146217189 FRENCH MTL
+2017-06-08 11:19:38 Write new Teacher Record Successful 	the key is 	q
+2017-06-08 11:20:10 Edit the RecordID is	tr10000	 fieldName 	location	 to the new value 	ddo
+2017-06-08 11:20:10 editRocord 	tr10000 	 Succeddfully
+2017-06-08 11:20:10 Manager exit
+2017-06-08 11:38:05 Create new manager account. 
+ Your manager id is 	MTL1000
+2017-06-08 11:38:10 MTL1000login in sucessfully
+2017-06-08 11:38:39 Manager create new Teacher Record 	YI QIN 1444 5146217189 FRENCH MTL
+2017-06-08 11:38:39 Write new Teacher Record Successful 	the key is 	Q
+2017-06-08 11:39:01 Edit the RecordID is	tr10001	 fieldName 	location	 to the new value 	lvl
+2017-06-08 11:39:01 editRocord 	tr10001 	 Succeddfully
+2017-06-08 11:39:01 Manager exit
