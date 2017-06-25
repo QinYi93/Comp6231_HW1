@@ -1,0 +1,12 @@
+module DCMSApp
+{
+  interface DCMS
+  {
+  string createTRecord();
+  string createSRecord();
+  string getRecordCounts();
+  string editRecord();
+  string transferRecord();
+  oneway void shutdown();
+  };
+};
